@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const notes = require('./notes.js');
 
 const successfulPrint = chalk.bold.green;
-const failedPrint = chalk.bold.red;
+const failedPrint = chalk.bold.inverse.red;
 
 const msg = notes();
 const url = 'https://mead.io';
@@ -17,5 +17,5 @@ console.log(successfulPrint(validator.isURL(url)));
 if (validator.isURL(badUrl)) {
     console.log(successfulPrint('true')); 
 } else {
-    console.log(failedPrint('false'));   
+    console.log(failedPrint('FALSE!'));   
 }
