@@ -15,7 +15,7 @@ console.log(successfulPrint(validator.isURL(url)));
 
 
 if (validator.isURL(badUrl)) {
-    console.log(successfulPrint('true')); 
+    console.log(successfulPrint('True')); 
 } else {
-    console.log(failedPrint('FALSE!'));   
+    console.log(failedPrint('False'));   
 }
