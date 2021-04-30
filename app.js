@@ -5,17 +5,12 @@ const notes = require('./notes.js');
 const successfulPrint = chalk.bold.green;
 const failedPrint = chalk.bold.inverse.red;
 
-const msg = notes();
-const url = 'https://mead.io';
-const badUrl = 'https:/mead.io';
+const command = process.argv[2];
 
-console.log(msg);
-console.log(successfulPrint(validator.isEmail('username@example.com')));
-console.log(successfulPrint(validator.isURL(url)));
-
-
-if (validator.isURL(badUrl)) {
-    console.log(successfulPrint('True')); 
+if (command === "add") {
+    console.log("Adding note...\n");
+} else if(command === "remove") {
+    console.log("Removing note...\n");
 } else {
-    console.log(failedPrint('False'));   
+    console.log("Invalid command, try using 'add' or 'remove' in the argument line.\n");
 }
