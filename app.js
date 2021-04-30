@@ -1,16 +1,44 @@
 const validator = require('validator');
 const chalk = require('chalk');
+const yargs = require('yargs');
 const notes = require('./notes.js');
 
-const successfulPrint = chalk.bold.green;
-const failedPrint = chalk.bold.inverse.red;
+// Customize yargs version
+yargs.version('1.1.0');
 
-const command = process.argv[2];
+// Ddd, Remove, Read, List command creation
+// Create add command
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: function() {
+        console.log('Adding a new note!');
+    }
+})
 
-if (command === "add") {
-    console.log("Adding note...\n");
-} else if(command === "remove") {
-    console.log("Removing note...\n");
-} else {
-    console.log("Invalid command, try using 'add' or 'remove' in the argument line.\n");
-}
+// Create remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    handler: function() {
+        console.log('Removing the note...');
+    }
+})
+
+// Create list command
+yargs.command({
+    command: 'list',
+    describe: 'List the current notes',
+    handler: function() {
+        console.log('Listing out all the notes...');
+    }
+})
+
+// Create read command
+yargs.command({
+    command: 'read',
+    describe: 'Reads the note', 
+    handler: function() {
+        console.log('Reading out the note')
+    }
+})
