@@ -56,8 +56,33 @@ const removeNote = (title) => {
     }
 }
 
+const listNotes = () => {
+    const notes = loadNotes();
+    
+    if (notes.length === 0) {
+        console.log(error("Note list is empty."))
+    } else {
+        console.log(chalk.inverse('Your note list'));
+        notes.forEach((note) => {
+            console.log("Title: " + note.title);
+        });
+    }
+}
+
+const readNote = (title) => {
+    const notes = loadNotes();
+    const targetNote = notes.find((note) => note.title === title);
+    if (!targetNote) {
+        console.log(error('No match found'))
+    } else {
+        console.log("Title: " + targetNote.title +"\nBody: " + targetNote.body);
+    }
+}
+
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes: listNotes,
+    readNote: readNote
 };
