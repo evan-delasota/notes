@@ -1,7 +1,5 @@
-const validator = require('validator');
 const yargs = require('yargs');
 const notes = require('./notes.js');
-const { addNote } = require('./notes.js');
 
 // Customize yargs version
 yargs.version('1.1.0');
