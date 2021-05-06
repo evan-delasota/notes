@@ -40,7 +40,17 @@ const saveNotes = function(notes) {
     fs.writeFileSync('notes.json', dataJSON);
 }
 
+const removeNote = function(title) {
+    const notes = loadNotes();
+    const notesToKeep = notes.filter(function(note) {
+        return note.title !== title;
+    });
+    
+    saveNotes(notesToKeep);
+}
+
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 };
