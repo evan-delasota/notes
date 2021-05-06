@@ -20,9 +20,9 @@ const addNote = (title, body) => {
             body: body
         });
         saveNotes(notes);
-        console.log("New note successfully added.");
+        console.log(success("New note successfully added."));
     } else {
-        console.log("Note title already taken.");
+        console.log(error("Note title already taken."));
     }  
 }
 
